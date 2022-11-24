@@ -1,0 +1,7 @@
+ext.pathMapper = [:]
+ext.pathMapper.put('C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/3rd-party-rt.jar', '/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/3rd-party-rt.jar')
+ext.pathMapper.put('C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/external-system-rt.jar', '/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/external-system-rt.jar')
+ext.pathMapper.put('C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/plugins/gradle/lib/gradle-tooling-extension-impl.jar', '/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/plugins/gradle/lib/gradle-tooling-extension-impl.jar')
+ext.pathMapper.put('C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/util.jar', '/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2022.2.4/lib/util.jar')
+ext.pathMapper.put("<<target java executable path>>", '/usr/lib/jvm/java-17-openjdk-amd64/bin/java')
+ext.mapPath = { path -> pathMapper.get(path) ?: path }
