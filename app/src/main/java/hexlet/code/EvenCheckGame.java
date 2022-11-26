@@ -6,35 +6,25 @@ public class EvenCheckGame {
     public static void startEvenCheckGame() {
         String username = Cli.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int answerInARow = 0;
+        int correctAnswerInARow = 0;
         Scanner console = new Scanner(System.in);
-        while (Math.abs(answerInARow) < 3) {
+        while (correctAnswerInARow < 3) {
             int currentNumber = (int) (Math.random() * 100);
-            boolean numberIsEven = currentNumber % 2 == 0;
+            String correctAnswer = (currentNumber % 2 == 0) ? "yes" : "no";
             System.out.println("Question: " + currentNumber);
             System.out.print("Your answer: ");
             String currentAnswer = console.nextLine();
-            if (((currentAnswer.equals("yes")) && numberIsEven) || ((currentAnswer.equals("no")) && !numberIsEven)) {
-                if (answerInARow >= 0) {
-                    answerInARow++;
-                } else {
-                    answerInARow = 1;
-                }
+            boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);
+            if (isAnswerCorrect) {
+                correctAnswerInARow++;
                 System.out.println("Correct!");
             } else {
-                if (answerInARow <= 0) {
-                    answerInARow--;
-                } else {
-                    answerInARow = -1;
-                }
-                System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was "
-                        + ((currentAnswer.equals("yes")) ? "'no'" : "'yes'") + ".");
+                System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
+                System.out.println("Let's try again, " + username + "!");
+                return;
             }
         }
-        if (answerInARow < 0) {
-            System.out.println("Let's try again, " + username + "!");
-        } else {
-            System.out.println("Congratulations, " + username + "!");
-        }
+        System.out.println("Congratulations, " + username + "!");
     }
 }
