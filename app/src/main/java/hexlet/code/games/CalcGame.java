@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 public class CalcGame {
 
     private static final int QUESTIONS_COUNT = 3;

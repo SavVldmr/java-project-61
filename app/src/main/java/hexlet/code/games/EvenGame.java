@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 public class EvenGame {
     private static final int QUESTIONS_COUNT = 3;
     public static void startEvenGame() {
