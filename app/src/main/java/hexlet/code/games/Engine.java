@@ -1,22 +1,22 @@
-package hexlet.code;
+package hexlet.code.games;
 
+import hexlet.code.Cli;
 import java.util.Scanner;
 
-public class EvenCheckGame {
-    public static void startEvenCheckGame() {
+public class Engine {
+
+    public static void startGame(String tip, String[] questions, String[] correctAnswers) {
         String username = Cli.greeting();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int correctAnswerInARow = 0;
+        System.out.println(tip);
+
         Scanner console = new Scanner(System.in);
-        while (correctAnswerInARow < 3) {
-            int currentNumber = (int) (Math.random() * 100);
-            String correctAnswer = (currentNumber % 2 == 0) ? "yes" : "no";
-            System.out.println("Question: " + currentNumber);
+        for (int i = 0; i < questions.length; i++) {
+            String correctAnswer = correctAnswers[i];
+            System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
-            String currentAnswer = console.nextLine();
+            var currentAnswer = console.nextLine();
             boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);
             if (isAnswerCorrect) {
-                correctAnswerInARow++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
