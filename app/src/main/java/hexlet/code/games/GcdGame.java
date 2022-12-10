@@ -21,7 +21,7 @@ public class GcdGame {
         return (int) (Math.random() * 100);
     }
 
-     private static String getCorrectAnswer(int a, int b)  {
+    private static String getCorrectAnswer(int a, int b)  {
         return String.valueOf(gcd(a, b));
     }
 
