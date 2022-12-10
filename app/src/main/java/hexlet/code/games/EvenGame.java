@@ -16,11 +16,11 @@ public class EvenGame {
         Engine.startGame(tip, questions, correctAnswers);
     }
 
-    public static int getQuestion() {
+    private static int getQuestion() {
         return (int) (Math.random() * 100);
     }
 
-    public static String getCorrectAnswer(int currentNumber) {
+    private static String getCorrectAnswer(int currentNumber) {
         return (currentNumber % 2 == 0) ? "yes" : "no";
     }
 
