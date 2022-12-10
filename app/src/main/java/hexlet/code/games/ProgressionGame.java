@@ -15,7 +15,7 @@ public class ProgressionGame {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int hiddenNumberIndex = getRandomNumber(1, numbersInARow);
             int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
-            int currentNumber = getQuestion();
+            int currentNumber = getRandomNumber(0, 100);
 
             questions[i] = "";
             for (int j = 1; j <= numbersInARow; j++) {
@@ -30,10 +30,6 @@ public class ProgressionGame {
             }
         }
         Engine.startGame(tip, questions, correctAnswers);
-    }
-
-    private static int getQuestion() {
-        return getRandomNumber(0, 100);
     }
 
     private static int getRandomNumber(int min, int max) {
