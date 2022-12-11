@@ -6,10 +6,10 @@ public class CalcGame {
 
     private static final int QUESTIONS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TIP = "What is the result of the expression?";
+    private static String[] questions = new String[QUESTIONS_COUNT];
+    private static String[] correctAnswers = new String[QUESTIONS_COUNT];
     public static void startCalcGame() {
-        String tip = "What is the result of the expression?";
-        String[] questions = new String[QUESTIONS_COUNT];
-        String[] correctAnswers = new String[QUESTIONS_COUNT];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int firstNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
             int secondNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
@@ -31,6 +31,6 @@ public class CalcGame {
             }
             questions[i] = String.valueOf(firstNum) + " " + operator + " " + String.valueOf(secondNum);
         }
-        Engine.startGame(tip, questions, correctAnswers);
+        Engine.startGame(TIP, questions, correctAnswers);
     }
 }

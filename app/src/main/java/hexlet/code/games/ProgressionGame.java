@@ -8,11 +8,12 @@ public class ProgressionGame {
     private static final int MIN_INCREMENT = 5;
     private static final int MAX_INCREMENT = 30;
     private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TIP = "What number is missing in the progression?";
+    private static String[] questions = new String[QUESTIONS_COUNT];
+    private static String[] correctAnswers = new String[QUESTIONS_COUNT];
     public static void startEvenGame() {
         int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
-        String tip = "What number is missing in the progression?";
-        String[] questions = new String[QUESTIONS_COUNT];
-        String[] correctAnswers = new String[QUESTIONS_COUNT];
+
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int hiddenNumberIndex = getRandomNumber(1, numbersInARow);
             int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
@@ -30,7 +31,7 @@ public class ProgressionGame {
                 currentNumber += increment;
             }
         }
-        Engine.startGame(tip, questions, correctAnswers);
+        Engine.startGame(TIP, questions, correctAnswers);
     }
 
     private static int getRandomNumber(int min, int max) {

@@ -3,16 +3,16 @@ import hexlet.code.Engine;
 public class PrimeGame {
     private static final int QUESTIONS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TIP = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static String[] questions = new String[QUESTIONS_COUNT];
+    private static String[] correctAnswers = new String[QUESTIONS_COUNT];
     public static void startPrimeGame() {
-        String tip = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[QUESTIONS_COUNT];
-        String[] correctAnswers = new String[QUESTIONS_COUNT];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int questionNumber = getQuestion();
             questions[i] = String.valueOf(questionNumber);
             correctAnswers[i] = getCorrectAnswer(questionNumber);
         }
-        Engine.startGame(tip, questions, correctAnswers);
+        Engine.startGame(TIP, questions, correctAnswers);
     }
 
     private static int getQuestion() {
