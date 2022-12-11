@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 
 public class EvenGame {
     private static final int QUESTIONS_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
     public static void startEvenGame() {
         String tip = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[] questions = new String[QUESTIONS_COUNT];
@@ -17,7 +18,7 @@ public class EvenGame {
     }
 
     private static int getQuestion() {
-        return (int) (Math.random() * 100);
+        return (int) (Math.random() * MAX_RANDOM_NUMBER);
     }
 
     private static String getCorrectAnswer(int currentNumber) {

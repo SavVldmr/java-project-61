@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 
 public class GcdGame {
     private static final int QUESTIONS_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
     public static void startGcdGame() {
         String tip = "Find the greatest common divisor of given numbers.";
         String[] questions = new String[QUESTIONS_COUNT];
@@ -18,7 +19,7 @@ public class GcdGame {
     }
 
     private static int getQuestion() {
-        return (int) (Math.random() * 100);
+        return (int) (Math.random() * MAX_RANDOM_NUMBER);
     }
 
     private static String getCorrectAnswer(int a, int b)  {

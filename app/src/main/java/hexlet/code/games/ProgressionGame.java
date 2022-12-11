@@ -7,6 +7,7 @@ public class ProgressionGame {
     private static final int MAX_NUMBERS_IN_A_ROW = 10;
     private static final int MIN_INCREMENT = 5;
     private static final int MAX_INCREMENT = 30;
+    private static final int MAX_RANDOM_NUMBER = 100;
     public static void startEvenGame() {
         int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
         String tip = "What number is missing in the progression?";
@@ -15,7 +16,7 @@ public class ProgressionGame {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int hiddenNumberIndex = getRandomNumber(1, numbersInARow);
             int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
-            int currentNumber = getRandomNumber(0, 100);
+            int currentNumber = getRandomNumber(0, MAX_RANDOM_NUMBER);
 
             questions[i] = "";
             for (int j = 1; j <= numbersInARow; j++) {
