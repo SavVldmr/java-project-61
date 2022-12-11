@@ -6,4 +6,5 @@ Demonstration "Even game": https://asciinema.org/a/540604
 Demonstration "Calc game": https://asciinema.org/a/540834 
 Demonstration "GCD game" : https://asciinema.org/a/544565 
 Demonstration "Progression game" : https://asciinema.org/a/544636 
+Demonstration "Prime game": https://asciinema.org/a/544739
 
