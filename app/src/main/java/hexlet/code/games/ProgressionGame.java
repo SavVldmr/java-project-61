@@ -11,7 +11,7 @@ public class ProgressionGame {
     private static final String TIP = "What number is missing in the progression?";
     private static String[] questions = new String[QUESTIONS_COUNT];
     private static String[] correctAnswers = new String[QUESTIONS_COUNT];
-    public static void startEvenGame() {
+    public static void startProgressionGame() {
         int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
 
         for (int i = 0; i < QUESTIONS_COUNT; i++) {

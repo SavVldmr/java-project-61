@@ -28,7 +28,7 @@ public class App {
                 GcdGame.startGcdGame();
                 break;
             case "5":
-                ProgressionGame.startEvenGame();
+                ProgressionGame.startProgressionGame();
                 break;
             case "6":
                 PrimeGame.startPrimeGame();
