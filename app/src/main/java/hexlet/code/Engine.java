@@ -3,15 +3,20 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-
-    public static void startGame(String tip, String[] questions, String[] correctAnswers) {
-        String username = Cli.greeting();
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    public static void startGame(String tip, String[][] questionsAnswers) {
+        //String username = Cli.greeting();
+        Scanner console = new Scanner(System.in);
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String username = console.nextLine();
+        System.out.println("Hello, " + username + "!");
         System.out.println(tip);
 
-        Scanner console = new Scanner(System.in);
-        for (int i = 0; i < questions.length; i++) {
-            String correctAnswer = correctAnswers[i];
-            System.out.println("Question: " + questions[i]);
+        for (int i = 0; i < questionsAnswers.length; i++) {
+            String correctAnswer = questionsAnswers[i][ANSWER_ROW_NUMBER];
+            System.out.println("Question: " + questionsAnswers[i][QUESTION_ROW_NUMBER]);
             System.out.print("Your answer: ");
             var currentAnswer = console.nextLine();
             boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);

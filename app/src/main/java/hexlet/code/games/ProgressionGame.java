@@ -1,6 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+
+import java.util.Arrays;
+
 public class ProgressionGame {
     private static final int QUESTIONS_COUNT = 3;
     private static final int MIN_NUMBERS_IN_A_ROW = 5;
@@ -9,29 +12,31 @@ public class ProgressionGame {
     private static final int MAX_INCREMENT = 30;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TIP = "What number is missing in the progression?";
-    private static String[] questions = new String[QUESTIONS_COUNT];
-    private static String[] correctAnswers = new String[QUESTIONS_COUNT];
-    public static void startProgressionGame() {
-        int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
 
+    public static void launch() {
+        int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
+        String[] arrayOfNumbers = new String[numbersInARow];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
-            int hiddenNumberIndex = getRandomNumber(1, numbersInARow);
+            int hiddenNumberIndex = getRandomNumber(0, numbersInARow - 1);
             int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
             int currentNumber = getRandomNumber(0, MAX_RANDOM_NUMBER);
-
-            questions[i] = "";
-            for (int j = 1; j <= numbersInARow; j++) {
+            Arrays.fill(arrayOfNumbers, "");
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = "";
+            for (int j = 0; j < numbersInARow; j++) {
                 if (j != hiddenNumberIndex) {
-                    questions[i] += String.valueOf(currentNumber);
+                    arrayOfNumbers[j] = String.valueOf(currentNumber);
                 } else {
-                    questions[i] += "..";
-                    correctAnswers[i] = String.valueOf(currentNumber);
+                    arrayOfNumbers[j] = "..";
+                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(currentNumber);
                 }
-                questions[i] += (j != numbersInARow) ? " " : "";
                 currentNumber += increment;
             }
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", arrayOfNumbers);
         }
-        Engine.startGame(TIP, questions, correctAnswers);
+        Engine.startGame(TIP, questionsAnswers);
     }
 
     private static int getRandomNumber(int min, int max) {
