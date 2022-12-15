@@ -50,7 +50,8 @@ public class App {
                 System.out.println("Goodbye!");
                 break;
             default:
-                System.out.println("Command \"" + response + "\" is not supported. The program will be closed. Goodbye!");
+                System.out.println("Command \"" + response + "\" is not supported. "
+                        + "The program will be closed. Goodbye!");
                 System.exit(0);
         }
 
