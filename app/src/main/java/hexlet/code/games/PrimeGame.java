@@ -13,20 +13,20 @@ public class PrimeGame {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int questionNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
             questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
-            questionsAnswers[i][ANSWER_ROW_NUMBER] = isPrime(questionNumber);
+            questionsAnswers[i][ANSWER_ROW_NUMBER] = (isPrime(questionNumber)) ? "yes" : "no";
         }
         Engine.startGame(TIP, questionsAnswers);
     }
 
-    private static String isPrime(int currentNumber) {
+    private static boolean isPrime(int currentNumber) {
         if (currentNumber < 2) {
-            return "no";
+            return false;
         }
         for (int i = 2; i <= currentNumber / 2; i++) {
             if (currentNumber % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

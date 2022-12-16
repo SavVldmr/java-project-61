@@ -15,13 +15,13 @@ public class EvenGame {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int questionNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
             questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
-            questionsAnswers[i][ANSWER_ROW_NUMBER] = isEven(questionNumber);
+            questionsAnswers[i][ANSWER_ROW_NUMBER] = (isEven(questionNumber)) ? "yes" : "no";
         }
         Engine.startGame(TIP, questionsAnswers);
     }
 
-    private static String isEven(int currentNumber) {
-        return (currentNumber % 2 == 0) ? "yes" : "no";
+    private static boolean isEven(int currentNumber) {
+        return currentNumber % 2 == 0;
     }
 
 }

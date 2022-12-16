@@ -18,23 +18,23 @@ public class ProgressionGame {
 
     public static void launch() {
         int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
-        String[] arrayOfNumbers = new String[numbersInARow];
+        String[] progression = new String[numbersInARow];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int hiddenNumberIndex = getRandomNumber(0, numbersInARow - 1);
             int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
             int currentNumber = getRandomNumber(0, MAX_RANDOM_NUMBER);
-            Arrays.fill(arrayOfNumbers, "");
+            Arrays.fill(progression, "");
             questionsAnswers[i][QUESTION_ROW_NUMBER] = "";
             for (int j = 0; j < numbersInARow; j++) {
                 if (j != hiddenNumberIndex) {
-                    arrayOfNumbers[j] = String.valueOf(currentNumber);
+                    progression[j] = String.valueOf(currentNumber);
                 } else {
-                    arrayOfNumbers[j] = "..";
+                    progression[j] = "..";
                     questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(currentNumber);
                 }
                 currentNumber += increment;
             }
-            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", arrayOfNumbers);
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", progression);
         }
         Engine.startGame(TIP, questionsAnswers);
     }
